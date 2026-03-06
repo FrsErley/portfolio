@@ -1,0 +1,266 @@
+.skills-screen {
+  display: grid;
+  gap: 14px;
+}
+
+/* Painel base */
+.panel {
+  border: 1px dashed rgba(240, 210, 170, 0.35);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  opacity: 0.92;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.5px);
+}
+
+.points {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.points .dot {
+  opacity: 0.5;
+}
+
+.points-value {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 210, 170, 0.2);
+  background: rgba(240, 210, 170, 0.07);
+  opacity: 0.95;
+}
+
+/* Badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(240, 210, 170, 0.25);
+  background: rgba(240, 210, 170, 0.07);
+  opacity: 0.92;
+}
+
+.badges.compact .badge {
+  padding: 8px 10px;
+  font-size: 11px;
+}
+
+/* Scroll para não esticar */
+.scroll-area {
+  max-height: 520px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(240, 210, 170, 0.25);
+  border-radius: 6px;
+}
+
+/* Grid das classes */
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .scroll-area {
+    max-height: 620px;
+  }
+}
+
+/* Tree cards */
+.tree-item {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  background: rgba(240, 210, 170, 0.05);
+  margin-bottom: 12px;
+}
+
+.tree-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.tree-name {
+  font-size: 13px;
+}
+
+/* + / - controls */
+.controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ctrl {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  border: 1px solid rgba(240, 210, 170, 0.28);
+  background: rgba(0, 0, 0, 0.22);
+  color: #e7e7e7;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 16px;
+  transition:
+    transform 120ms ease,
+    opacity 120ms ease,
+    background 120ms ease;
+  user-select: none;
+}
+
+.ctrl:hover {
+  transform: translateY(-1px);
+  background: rgba(240, 210, 170, 0.1);
+}
+
+.ctrl:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.lvl {
+  font-size: 11px;
+  opacity: 0.75;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 210, 170, 0.2);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Bars + Shine */
+.bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: rgba(240, 210, 170, 0.86);
+  position: relative;
+  transition: width 220ms ease;
+}
+
+/* Shine */
+.fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: skill-shine 2.8s infinite;
+}
+
+@keyframes skill-shine {
+  0% {
+    left: -30px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chip {
+  font-size: 11px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  background: rgba(0, 0, 0, 0.12);
+  opacity: 0.9;
+}
+
+.spellbook {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(240, 210, 170, 0.22);
+}
+
+.spell-title {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 10px;
+}
+
+.soft-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.soft-item {
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  border-radius: 10px;
+  padding: 12px;
+
+  background: rgba(240, 210, 170, 0.05);
+}
+
+.soft-title {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.soft-item p {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .soft-grid {
+    grid-template-columns: 1fr;
+  }
+}

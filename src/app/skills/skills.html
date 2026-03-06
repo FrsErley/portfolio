@@ -1,0 +1,117 @@
+<div class="skills-screen">
+  <!-- TOP BAR: Passive + Skill Points -->
+  <section class="panel top">
+    <div class="panel-title">
+      <span class="icon">🧠</span>
+      Passive Skills
+    </div>
+
+    <div class="badges compact">
+      <span class="badge" *ngFor="let p of passiveSkills">✨ {{ p }}</span>
+    </div>
+  </section>
+
+  <span class="points">
+    <span class="dot">•</span>
+    Skill Points Available:
+    <span class="points-value">{{ pointsAvailable }}</span>
+  </span>
+  <!-- Scroll area (pra não esticar) -->
+  <div class="scroll-area">
+    <div class="grid">
+      <section class="panel tree" *ngFor="let g of groups">
+        <div class="panel-title">
+          <span class="icon">{{ g.icon }}</span>
+          {{ g.title }}
+        </div>
+
+        <div class="tree-item" *ngFor="let s of g.skills">
+          <div class="tree-head">
+            <span class="tree-name">{{ s.name }}</span>
+
+            <div class="controls">
+              <button
+                class="ctrl"
+                (click)="removePoint(s); sound.removePoints()"
+                [disabled]="!canRemove(s)"
+                aria-label="remove point"
+              >
+                −
+              </button>
+              <span class="lvl">LVL {{ s.level }}</span>
+              <button
+                class="ctrl"
+                (click)="addPoint(s); sound.playPoint()"
+                [disabled]="!canAdd(s)"
+                aria-label="add point"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="bar">
+            <div class="fill" [style.width]="width(s)"></div>
+          </div>
+
+          <div class="chips">
+            <span class="chip" *ngFor="let t of s.tags">{{ t }}</span>
+          </div>
+        </div>
+
+        <div class="spellbook">
+          <div class="spell-title">{{ g.spellTitle }}</div>
+          <div class="badges compact">
+            <span class="badge" *ngFor="let b of g.spellBadges">{{ b }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="panel soft-skills">
+    <div class="panel-title">
+      <span class="icon">🧠</span>
+      Soft Skills
+    </div>
+
+    <div class="soft-grid">
+      <div class="soft-item">
+        <div class="soft-title">🧩 Problem Solving</div>
+        <p>
+          Capacidade de analisar problemas complexos e desenvolver soluções eficientes focadas em
+          performance e escalabilidade.
+        </p>
+      </div>
+
+      <div class="soft-item">
+        <div class="soft-title">🤝 Team Collaboration</div>
+        <p>
+          Experiência trabalhando em equipe, discutindo soluções técnicas e colaborando para atingir
+          objetivos do projeto.
+        </p>
+      </div>
+
+      <div class="soft-item">
+        <div class="soft-title">🚀 Ownership</div>
+        <p>
+          Proatividade na tomada de decisões técnicas e responsabilidade sobre a qualidade das
+          entregas.
+        </p>
+      </div>
+
+      <div class="soft-item">
+        <div class="soft-title">📈 Continuous Learning</div>
+        <p>Busca constante por novas tecnologias, boas práticas e evolução como desenvolvedor.</p>
+      </div>
+
+      <div class="soft-item">
+        <div class="soft-title">🎯 Product Thinking</div>
+        <p>
+          Foco em desenvolver soluções que resolvam problemas reais e entreguem valor ao usuário
+          final.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,94 @@
+<div class="screen">
+  <div class="left">
+    <div class="header">
+      <h1>Olá, estranho!</h1>
+    </div>
+
+    <p class="lead">
+      Me chamo Francisco Erley Santana Albuquerque, mas pode me chamar de Erley. Desenvolvedor full
+      stack apaixonado por construir produtos úteis e bem feitos.
+    </p>
+
+    <div class="stats">
+      <div class="chip">Angular</div>
+      <div class="chip">.NET 8</div>
+      <div class="chip">Node/Nest</div>
+      <div class="chip">AWS + Docker</div>
+    </div>
+
+    <!-- NOVO: Skill summary com "level bars" -->
+    <section class="skillbox" aria-label="Resumo de habilidades">
+      <div class="skillbox-title">🧰 Resumo de Skills <span class="hint">LVL</span></div>
+
+      <div class="skills-grid">
+        <div class="skill">
+          <div class="skill-top">
+            <span class="skill-name">Frontend (Angular)</span>
+            <span class="lvl">LVL 9</span>
+          </div>
+          <div class="bar"><div class="fill" style="width: 90%"></div></div>
+          <div class="skill-meta">RxJS • Forms • Performance</div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top">
+            <span class="skill-name">Backend (.NET / Node)</span>
+            <span class="lvl">LVL 9</span>
+          </div>
+          <div class="bar"><div class="fill" style="width: 90%"></div></div>
+          <div class="skill-meta">APIs • Clean Architecture • Jobs</div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top">
+            <span class="skill-name">Cloud / DevOps</span>
+            <span class="lvl">LVL 7</span>
+          </div>
+          <div class="bar"><div class="fill" style="width: 72%"></div></div>
+          <div class="skill-meta">AWS • Docker • CI/CD</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quest (mantém) -->
+
+    <!-- NOVO: CTAs pequenos -->
+  </div>
+
+  <div class="right">
+    <div class="portrait-frame">
+      <img class="portrait" src="image.png" alt="Erley pixel style" />
+      <div class="portrait-badge">★ Player Card</div>
+    </div>
+
+    <div class="quest">
+      <div class="player-meta">
+        <span class="lvl">LVL 29</span>
+        <span class="meta-sep">•</span>
+        <span class="class">Desenvolvedor Full Stack</span>
+        <span class="meta-sep">•</span>
+        <span class="xp">⚡ XP 4200</span>
+      </div>
+      <div class="xp-bar" aria-label="XP bar">
+        <div class="xp-fill" style="width: 15%"></div>
+      </div>
+
+      <div class="xp-hint">
+        <span>Next level</span>
+        <span>15%</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="quest">
+  <div class="quest-title">
+    <span class="quest-icon" aria-hidden="true">🎯</span>
+    <span>Quest atual</span>
+  </div>
+  <p>Finalizar construção de porfólio personalizado</p>
+
+  <div class="quest-footer">
+    <span class="reward">🎁 Recompensa: +1 Chance de entrevista</span>
+    <a class="btn" routerLink="/projects" (click)="sound.playBlip()">📜 Ver Missões</a>
+  </div>
+</div>

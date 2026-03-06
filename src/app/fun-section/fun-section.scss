@@ -1,0 +1,14 @@
+.fun-section {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  background-color: #101020; /* fundo escuro combinando */
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated; /* mantém pixel art */
+}

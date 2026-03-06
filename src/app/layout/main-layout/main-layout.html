@@ -1,0 +1,66 @@
+<app-pixel-rain></app-pixel-rain>
+
+<div class="scene">
+  <main class="hud">
+    <section class="window">
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="identity">
+          <div>
+            <div class="name">Francisco Erley</div>
+            <div class="role">Desenvolvedor Full Stack</div>
+          </div>
+        </div>
+
+        <nav class="links">
+          <a class="link" href="https://github.com/FrsErley" target="_blank" rel="noreferrer"
+            >GitHub</a
+          >
+          <a
+            class="link"
+            href="https://linkedin.com/in/francisco-erley-dev"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn</a
+          >
+        </nav>
+      </header>
+
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+
+      <footer class="menu">
+        <a
+          routerLink="/presentation"
+          routerLinkActive="active"
+          class="btn"
+          (click)="sound.playBlip()"
+        >
+          <span class="btn-icon">▶</span>
+          <span>Início</span>
+        </a>
+
+        <a routerLink="/about" routerLinkActive="active" class="btn" (click)="sound.playBlip()">
+          <span class="btn-icon">📜</span>
+          <span>Sobre</span>
+        </a>
+
+        <a routerLink="/skills" routerLinkActive="active" class="btn" (click)="sound.playBlip()">
+          <span class="btn-icon">🧰</span>
+          <span>Skills</span>
+        </a>
+
+        <a routerLink="/projects" routerLinkActive="active" class="btn" (click)="sound.playBlip()">
+          <span class="btn-icon">📜</span>
+          <span>Missões</span>
+        </a>
+
+        <a routerLink="/contact" routerLinkActive="active" class="btn" (click)="sound.playBlip()">
+          <span class="btn-icon">✉</span>
+          <span>Contato</span>
+        </a>
+      </footer>
+    </section>
+  </main>
+</div>

@@ -1,0 +1,195 @@
+.contact-screen {
+  display: grid;
+  gap: 14px;
+}
+
+/* Painel base */
+.panel {
+  border: 1px dashed rgba(240, 210, 170, 0.35);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  opacity: 0.92;
+  margin-bottom: 12px;
+}
+
+.icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.5px);
+  margin-bottom: 3px;
+}
+
+/* Hero */
+.hero h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.hero-text {
+  font-size: 13px;
+  line-height: 1.7;
+  opacity: 0.82;
+  max-width: 70ch;
+  margin: 0;
+}
+
+/* Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 190px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.5px);
+}
+
+.linkedin-icon {
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.5px);
+}
+
+.card-title {
+  font-size: 14px;
+}
+
+.card-text {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+/* Buttons */
+.action-btn,
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  text-decoration: none;
+  font-size: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(240, 210, 170, 0.3);
+  background: rgba(240, 210, 170, 0.08);
+  color: #e7e7e7;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.action-btn:hover,
+.download-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(240, 210, 170, 0.16);
+}
+
+.action-btn:active,
+.download-btn:active {
+  transform: translateY(1px);
+}
+
+/* Resume */
+.resume-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.resume-left {
+  flex: 1;
+}
+
+.resume-text {
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.resume-right {
+  display: flex;
+  align-items: center;
+}
+
+.download-btn {
+  min-width: 170px;
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .resume-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resume-right {
+    width: 100%;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+}
+
+/* Footer note */
+.footer-note {
+  text-align: center;
+}
+
+.footer-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  opacity: 0.78;
+}

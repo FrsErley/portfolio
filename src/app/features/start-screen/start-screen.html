@@ -1,0 +1,30 @@
+<div class="start-screen">
+  <app-pixel-rain></app-pixel-rain>
+
+  <div class="start-box">
+    <div class="title">PORTFOLIO.EXE</div>
+    <div class="subtitle">Francisco Erley Santana Albuquerque</div>
+
+    <!-- START -->
+    <button class="start-btn" *ngIf="state === 'idle'" (click)="start()">
+      <span class="btn-icon">▶</span>
+      <span>Press START</span>
+    </button>
+
+    <!-- LOADING -->
+    <div class="loading" *ngIf="state === 'loading'">
+      <div class="loading-line">
+        <span class="loading-icon">⏳</span>
+        <span>Loading presentation...</span>
+        <span class="pct">{{ progress }}%</span>
+      </div>
+
+      <div class="bar">
+        <div class="fill" [style.width]="progress + '%'"></div>
+      </div>
+
+      <div class="loading-hint">Tip: Use o menu abaixo para explorar About, Skills e Quests.</div>
+    </div>
+    <div class="build">v1.0 • build 2026</div>
+  </div>
+</div>

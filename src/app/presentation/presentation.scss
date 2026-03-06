@@ -1,0 +1,476 @@
+.screen {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* TIP: deixe a fonte do site mais “bonita” no styles.scss global.
+   Aqui só ajusto tamanhos/pesos. */
+h1 {
+  font-size: 26px;
+  margin: 0 0 6px;
+  letter-spacing: 0.2px;
+}
+
+.header .sub {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+
+.tag {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  background: rgba(240, 210, 170, 0.05);
+}
+
+.dot {
+  opacity: 0.6;
+}
+
+.lead {
+  opacity: 0.92;
+  line-height: 1.65;
+  margin: 0 0 14px;
+  max-width: 56ch;
+  font-size: 17.5px;
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.chip {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(240, 210, 170, 0.25);
+  background: rgba(240, 210, 170, 0.07);
+}
+
+/* Skillbox */
+.skillbox {
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.12);
+  margin-bottom: 14px;
+}
+
+.skillbox-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.hint {
+  font-size: 11px;
+  opacity: 0.7;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px dashed rgba(240, 210, 170, 0.25);
+}
+
+.skills-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.skill-name {
+  font-size: 13px;
+}
+
+.lvl {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.fill {
+  height: 100%;
+  width: 50%;
+  background: rgba(240, 210, 170, 0.85);
+
+  position: relative; /* necessário para o brilho */
+}
+
+.fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px;
+
+  width: 30px;
+  height: 100%;
+
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+
+  animation: skill-shine 2.5s infinite;
+}
+
+@keyframes skill-shine {
+  0% {
+    left: -30px;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.skill-meta {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+/* Quest */
+.quest {
+  border: 1px dashed rgba(240, 210, 170, 0.35);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
+  max-height: 110px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.action {
+  text-decoration: none;
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(240, 210, 170, 0.28);
+  background: rgba(240, 210, 170, 0.06);
+  opacity: 0.92;
+  transition:
+    transform 120ms ease,
+    opacity 120ms ease;
+}
+
+.action:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.action.primary {
+  background: rgba(240, 210, 170, 0.16);
+  border-color: rgba(240, 210, 170, 0.5);
+}
+
+/* Right portrait */
+.portrait-frame {
+  position: relative;
+}
+
+.portrait {
+  width: 100%;
+  max-height: 332px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 12px;
+  border: 1px solid rgba(240, 210, 170, 0.35);
+}
+
+.portrait-badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 210, 170, 0.28);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 720px) {
+  .screen {
+    grid-template-columns: 1fr;
+  }
+  .portrait {
+    max-height: 260px;
+  }
+}
+
+.quest-title {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+
+  font-size: 12px; /* ou 13px se quiser mais forte */
+  font-weight: 400;
+  letter-spacing: 0.2px;
+
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 8px;
+
+  /* IMPORTANTE: não use fonte pixel aqui */
+  line-height: 1;
+}
+
+.quest-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+
+  /* fixa o emoji no meio e evita “pular” */
+  transform: translateY(0.5px);
+  font-size: 16px;
+  line-height: 1;
+  padding-bottom: 4px;
+}
+
+.quest p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.xp-bar {
+  height: 6px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.xp-fill {
+  height: 100%;
+  width: 75%;
+  background: #d2b48c;
+}
+
+.identity .name {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.identity .role {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+/* NOVO */
+.player-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+
+  font-size: 12px;
+  opacity: 0.85;
+  line-height: 1;
+}
+
+.player-meta .lvl {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 210, 170, 0.25);
+  background: rgba(240, 210, 170, 0.08);
+}
+
+.player-meta .class {
+  opacity: 0.9;
+}
+
+.player-meta .xp {
+  opacity: 0.95;
+}
+
+.meta-sep {
+  opacity: 0.45;
+}
+
+/* XP BAR */
+.xp-bar {
+  height: 8px;
+  border-radius: 999px;
+  margin-top: 8px;
+
+  border: 1px solid rgba(240, 210, 170, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+
+  /* deixa mais “pixel” */
+  image-rendering: pixelated;
+}
+
+.xp-fill {
+  height: 100%;
+  width: 72%;
+
+  background: rgba(240, 210, 170, 0.88);
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+
+  /* sensação de “degraus” */
+  transition: width 260ms ease;
+}
+
+/* Linha pequena abaixo */
+.xp-hint {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.xp-fill {
+  position: relative;
+}
+
+.xp-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  animation: xp-shine 2.2s infinite;
+}
+
+@keyframes xp-shine {
+  0% {
+    left: -30px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.achievements {
+  border: 1px dashed rgba(240, 210, 170, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.12);
+  margin-top: 12px;
+}
+
+.ach-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.ach-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.quest-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.reward {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.quest-action {
+  font-size: 12px;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(240, 210, 170, 0.3);
+  background: rgba(240, 210, 170, 0.08);
+  color: #fff;
+}
+.quest-action:hover {
+  transform: translateY(-2px);
+}
+
+.portrait-badge {
+  animation: breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
+.btn {
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  padding: 10px 14px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(240, 210, 170, 0.35);
+  background: rgba(240, 210, 170, 0.08);
+
+  color: #e7e7e7;
+
+  opacity: 0.9;
+  user-select: none;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  transition: all 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  background: rgba(240, 210, 170, 0.14);
+}

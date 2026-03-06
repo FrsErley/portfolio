@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --font-ui: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-pixel: 'Press Start 2P', ui-monospace, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: #e7e7e7;
+  background: #0a0a0f;
+}
+
+h1,
+h2,
+.menu .btn,
+.quest-title {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.4px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.main-content {
+  min-height: 90vh;
+  padding-top: 100px;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: ease;
+}
+
+/* Tela antiga saindo: fade + sobe um pouquinho */
+::view-transition-old(root) {
+  animation-name: vt-fade-out-up;
+}
+
+/* Tela nova entrando: fade + desce um pouquinho */
+::view-transition-new(root) {
+  animation-name: vt-fade-in-up;
+}
+
+@keyframes vt-fade-out-up {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes vt-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

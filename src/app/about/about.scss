@@ -1,0 +1,211 @@
+.about-screen {
+  display: grid;
+  gap: 16px;
+}
+
+.about-card {
+  border: 1px dashed rgba(240, 210, 170, 0.35);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Título estilo RPG */
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.icon {
+  font-size: 14px;
+}
+
+/* Texto */
+
+.about-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+/* Philosophy */
+
+.philosophy {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.philosophy li {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Timeline */
+
+.timeline {
+  display: grid;
+  gap: 12px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 10px;
+}
+
+.year {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.desc {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.stats-card {
+  border: 1px dashed rgba(240, 210, 170, 0.35);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  border: 1px solid rgba(240, 210, 170, 0.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(240, 210, 170, 0.05);
+}
+
+.label {
+  font-size: 11px;
+  opacity: 0.65;
+  margin-bottom: 3px;
+}
+
+.value {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.timeline {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  max-height: 320px;
+  overflow-y: auto;
+  padding-left: 24px;
+}
+
+/* linha vertical */
+
+.timeline::before {
+  content: '';
+  position: absolute;
+
+  left: 6px;
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+  background: rgba(240, 210, 170, 0.25);
+}
+
+/* item */
+
+.timeline-item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+}
+
+/* bolinha da timeline */
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+
+  left: -18px;
+  top: 6px;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: rgba(240, 210, 170, 0.9);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+/* ano */
+
+.year {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* descrição */
+
+.desc {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.job-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.job-tech {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+/* lista */
+
+.desc ul {
+  margin: 6px 0 0;
+  padding-left: 16px;
+}
+
+.desc li {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.timeline-item::before {
+  box-shadow: 0 0 6px rgba(240, 210, 170, 0.6);
+}
+
+.timeline::-webkit-scrollbar {
+  width: 6px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: rgba(240, 210, 170, 0.25);
+  border-radius: 6px;
+}
