@@ -1,0 +1,105 @@
+<div class="quest-backdrop" (click)="close()"></div>
+
+<div class="quest-modal" role="dialog" aria-modal="true">
+  <div class="quest-modal__content" (click)="$event.stopPropagation()">
+    <header class="quest-modal__header">
+      <div class="quest-modal__title-wrap">
+        <div class="quest-modal__eyebrow">
+          <span class="icon">🗺️</span>
+          Quest Details
+        </div>
+
+        <h2 class="quest-modal__title">{{ project.title }}</h2>
+        <p class="quest-modal__subtitle">{{ project.subtitle }}</p>
+      </div>
+
+      <button class="quest-modal__close" (click)="close()" aria-label="Fechar modal">✕</button>
+    </header>
+
+    <div class="quest-modal__body">
+      <!-- LEFT: CAROUSEL -->
+      <section class="quest-carousel">
+        <div class="quest-carousel__frame" *ngIf="activeImage">
+          <button
+            class="quest-carousel__nav quest-carousel__nav--prev"
+            (click)="$event.stopPropagation(); prevImage()"
+            aria-label="Imagem anterior"
+          >
+            ‹
+          </button>
+
+          <img class="quest-carousel__image" [src]="activeImage.src" [alt]="activeImage.alt" />
+
+          <button
+            class="quest-carousel__nav quest-carousel__nav--next"
+            (click)="$event.stopPropagation(); nextImage()"
+            aria-label="Próxima imagem"
+          >
+            ›
+          </button>
+
+          <div class="quest-carousel__counter">
+            {{ activeImageIndex + 1 }} / {{ project.images.length }}
+          </div>
+        </div>
+
+        <div class="quest-carousel__thumbs">
+          <button
+            class="quest-carousel__thumb"
+            *ngFor="let img of project.images; let i = index"
+            [class.active]="i === activeImageIndex"
+            (click)="$event.stopPropagation(); selectImage(i)"
+          >
+            <img [src]="img.src" [alt]="img.alt" />
+          </button>
+        </div>
+      </section>
+
+      <!-- RIGHT: INFO PANEL -->
+      <aside class="quest-panel">
+        <div class="quest-panel__badges">
+          <span [class]="statusClass(project.status)">{{ project.status }}</span>
+          <span [class]="diffClass(project.difficulty)">{{ project.difficulty }}</span>
+          <span class="pill">⚡ XP {{ project.xp }}</span>
+          <span class="pill">🎁 {{ project.reward }}</span>
+        </div>
+
+        <div class="quest-panel__section">
+          <div class="section-title">📖 Overview</div>
+          <p class="quest-panel__text">
+            {{ project.description }}
+          </p>
+        </div>
+
+        <div class="quest-panel__section">
+          <div class="section-title">🧩 Stack</div>
+          <div class="tech">
+            <span class="chip" *ngFor="let t of project.tech">{{ t }}</span>
+          </div>
+        </div>
+
+        <div class="quest-panel__section">
+          <div class="section-title">🎯 Highlights</div>
+          <ul class="list">
+            <li *ngFor="let h of project.highlights">{{ h }}</li>
+          </ul>
+        </div>
+
+        <div class="quest-panel__section" *ngIf="project.links?.length">
+          <div class="section-title">🔗 Links</div>
+          <div class="links">
+            <a
+              class="action"
+              *ngFor="let l of project.links"
+              [href]="l.url"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ l.label }}
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

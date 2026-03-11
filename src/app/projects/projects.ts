@@ -1,5 +1,7 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
+import { ProjectModal } from '../shared/components/project-modal/project-modal';
+import { Dialog } from '@angular/cdk/dialog';
 
 type QuestStatus = 'Finalizado' | 'Em Andamento';
 type Difficulty = 'Fácil' | 'Normal' | 'Difícil' | 'Chefe';
@@ -31,12 +33,14 @@ interface Quest {
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, NgIf, NgFor],
+  imports: [CommonModule, NgIf, NgFor, ProjectModal],
   standalone: true,
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
 export class Projects {
+  private dialog = inject(Dialog);
+
   quests: Quest[] = [
     {
       id: 'quest-finance-ai',
@@ -160,12 +164,14 @@ export class Projects {
   }
 
   openQuest(q: Quest) {
-    this.selected = q;
-    this.activeImageIndex = 0;
-  }
-
-  closeModal() {
-    this.selected = null;
+    this.dialog.open(ProjectModal, {
+      data: { project: q },
+      panelClass: 'quest-dialog-panel',
+      backdropClass: 'quest-dialog-backdrop',
+      width: '700px',
+      maxWidth: '60vw',
+      maxHeight: '60vh',
+    });
   }
 
   selectImage(index: number) {
@@ -175,23 +181,6 @@ export class Projects {
   get activeImage() {
     if (!this.selected) return null;
     return this.selected.images[this.activeImageIndex];
-  }
-
-  nextImage() {
-    if (!this.selected) return;
-    this.activeImageIndex = (this.activeImageIndex + 1) % this.selected.images.length;
-  }
-
-  prevImage() {
-    if (!this.selected) return;
-    this.activeImageIndex =
-      (this.activeImageIndex - 1 + this.selected.images.length) % this.selected.images.length;
-  }
-
-  // Fecha com ESC
-  @HostListener('document:keydown.escape')
-  onEsc() {
-    if (this.selected) this.closeModal();
   }
 
   statusClass(s: QuestStatus) {

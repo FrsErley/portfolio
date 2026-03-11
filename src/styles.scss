@@ -66,3 +66,18 @@ body {
     transform: translateY(0);
   }
 }
+
+.quest-dialog-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.quest-dialog-panel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  width: 100vw;
+  max-width: 100vw !important;
+  box-sizing: border-box;
+}
