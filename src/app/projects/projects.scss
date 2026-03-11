@@ -412,10 +412,11 @@ canvas {
 }
 
 .quest-modal__content {
-  width: min(1240px, 100%);
+  width: min(1100px, 100%);
   max-width: 100%;
-  max-height: min(90vh, 820px);
-  overflow: auto;
+  max-height: min(100vh - 32px);
+  overflow-y: auto;
+  overflow-x: hidden;
   border: 1px solid rgba(240, 210, 170, 0.3);
   border-radius: 18px;
   padding: 20px;
@@ -442,6 +443,10 @@ canvas {
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 18px;
+}
+
+.quest-modal__title-wrap {
+  min-width: 0;
 }
 
 .quest-modal__eyebrow {
@@ -488,15 +493,10 @@ canvas {
 
 /* BODY */
 .quest-modal__body {
-  display: grid;
-  gap: 22px;
-  align-items: start;
-}
-
-@media (max-width: 480px) {
-  .quest-modal__body {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
 }
 
 /* CAROUSEL */
@@ -507,20 +507,21 @@ canvas {
 
 .quest-carousel__frame {
   position: relative;
-  min-height: 420px;
-  max-height: 520px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(240, 210, 170, 0.18);
-  background: rgba(0, 0, 0, 0.18);
+  background: radial-gradient(circle at center, rgba(20, 20, 30, 0.9), rgba(10, 10, 18, 1));
 }
 
 .quest-carousel__image {
   width: 100%;
   height: 100%;
-  min-height: 420px;
-  max-height: 520px;
+  object-fit: contain;
+  object-position: center;
   display: block;
+  padding: 12px;
 }
 
 .quest-carousel__nav {
@@ -581,21 +582,26 @@ canvas {
 }
 
 .quest-carousel__thumb {
-  width: 200px;
-  height: 100px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   padding: 0;
   border: 1px solid rgba(240, 210, 170, 0.16);
   border-radius: 12px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.16);
-  object-fit: contain;
-
   cursor: pointer;
   opacity: 0.78;
   transition:
     transform 0.15s ease,
     border-color 0.15s ease,
     opacity 0.15s ease;
+}
+
+.quest-carousel__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .quest-carousel__thumb:hover {
@@ -606,13 +612,6 @@ canvas {
 .quest-carousel__thumb.active {
   border-color: rgba(240, 210, 170, 0.75);
   opacity: 1;
-}
-
-.quest-carousel__thumb img {
-  width: 100%;
-  height: 82px;
-  object-fit: cover;
-  display: block;
 }
 
 /* INFO PANEL */
@@ -700,5 +699,140 @@ canvas {
     opacity: 1;
     transform: scale(1);
     filter: blur(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .quest-modal {
+    padding: 12px;
+  }
+
+  .quest-modal__content {
+    padding: 16px;
+    border-radius: 16px;
+    max-height: calc(100vh - 24px);
+  }
+
+  .quest-modal__title {
+    font-size: 20px;
+  }
+
+  .quest-modal__subtitle {
+    font-size: 12px;
+  }
+
+  .quest-carousel__frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .quest-carousel__thumbs {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .quest-panel {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .quest-modal {
+    padding: 12px;
+  }
+
+  .quest-modal__content {
+    padding: 16px;
+    border-radius: 16px;
+    max-height: calc(100vh - 24px);
+  }
+
+  .quest-modal__title {
+    font-size: 20px;
+  }
+
+  .quest-modal__subtitle {
+    font-size: 12px;
+  }
+
+  .quest-carousel__frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .quest-carousel__thumbs {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .quest-panel {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .quest-modal {
+    padding: 8px;
+  }
+
+  .quest-modal__content {
+    padding: 14px;
+    border-radius: 14px;
+    max-height: calc(100vh - 16px);
+  }
+
+  .quest-modal__header {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .quest-modal__title {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .quest-modal__subtitle {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .quest-carousel__frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .quest-carousel__image {
+    padding: 8px;
+  }
+
+  .quest-carousel__nav {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .quest-carousel__nav--prev {
+    left: 8px;
+  }
+
+  .quest-carousel__nav--next {
+    right: 8px;
+  }
+
+  .quest-carousel__counter {
+    right: 8px;
+    bottom: 8px;
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .quest-carousel__thumbs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .quest-panel__section {
+    padding: 12px;
+  }
+
+  .quest-panel__badges {
+    gap: 6px;
   }
 }

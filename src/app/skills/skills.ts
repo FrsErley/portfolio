@@ -29,7 +29,7 @@ interface SkillGroup {
 export class Skills {
   constructor(public sound: SoundService) {}
 
-  pointsAvailable = 0;
+  pointsAvailable = 3;
 
   // Se quiser simular points, mude pra 3 ou 5:
   // pointsAvailable = 5;
@@ -37,55 +37,58 @@ export class Skills {
   groups: SkillGroup[] = [
     {
       key: 'frontend',
-      title: 'Frontend Class',
+      title: 'Habilidades Frontend',
       icon: '🧩',
-      spellTitle: '📚 UI Spells',
+      spellTitle: '📚 UI Habilidades',
       spellBadges: ['JavaScript', 'TypeScript', 'Tailwind', 'Bootstrap', 'Axios', 'Context API'],
       skills: [
         {
           name: 'Angular',
-          level: 9,
+          level: 8,
           max: 10,
           tags: ['TypeScript', 'RxJS', 'Componentização', 'Performance'],
         },
-        { name: 'React', level: 6, max: 10, tags: ['Context API', 'Axios', 'Tailwind'] },
-        { name: 'Next.js', level: 6, max: 10, tags: ['SSR', 'Routes', 'TypeScript'] },
+        { name: 'React', level: 8, max: 10, tags: ['Context API', 'Axios', 'Tailwind'] },
+        { name: 'Next.js', level: 8, max: 10, tags: ['SSR', 'Routes', 'TypeScript'] },
         { name: 'Vue', level: 5, max: 10, tags: ['SPA', 'Components'] },
       ],
     },
     {
       key: 'backend',
-      title: 'Backend Class',
+      title: 'Habilidades Backend',
       icon: '🛡️',
-      spellTitle: '🧪 Tests & Quality',
-      spellBadges: ['Jest'],
+      spellTitle: '🧪 Testes & Qualidade',
+      spellBadges: ['Jest', 'Unittest', 'xUnit'],
       skills: [
         { name: '.NET 8', level: 8, max: 10, tags: ['APIs', 'Arquitetura', 'Performance', 'SQL'] },
-        { name: 'Node.js', level: 7, max: 10, tags: ['JavaScript', 'TypeScript', 'APIs'] },
-        { name: 'NestJS', level: 7, max: 10, tags: ['Modules', 'Guards', 'Interceptors'] },
-        { name: 'Laravel', level: 5, max: 10, tags: ['REST', 'MVC'] },
+        { name: 'Node.js', level: 8, max: 10, tags: ['JavaScript', 'TypeScript', 'APIs'] },
+        { name: 'NestJS', level: 8, max: 10, tags: ['Modules', 'Guards', 'Interceptors'] },
+        { name: 'Laravel', level: 7, max: 10, tags: ['REST', 'MVC'] },
+        { name: 'Python', level: 7, max: 10, tags: ['FastAPI', 'REST APIs', 'SQLAlchemy'] },
       ],
     },
     {
       key: 'devops',
       title: 'Cloud & DevOps',
       icon: '☁️',
-      spellTitle: '🧰 Toolbelt',
+      spellTitle: '🧰 Ferramentas',
       spellBadges: ['Git', 'Git Flow', 'GitHub Actions', 'CI/CD'],
       skills: [
         { name: 'AWS', level: 7, max: 10, tags: ['EC2', 'ECS', 'Elastic Beanstalk'] },
         { name: 'Docker', level: 7, max: 10, tags: ['Compose', 'Containers'] },
         { name: 'CI/CD', level: 6, max: 10, tags: ['Git', 'Git Flow', 'GitHub Actions'] },
+        { name: 'Kubernetes', level: 6, max: 10, tags: ['Git', 'Git Flow', 'GitHub Actions'] },
       ],
     },
     {
       key: 'database',
       title: 'Database & Data',
       icon: '🗃️',
-      spellTitle: '🧙 ORMs / Data Tools',
-      spellBadges: ['Prisma', 'Sequelize'],
+      spellTitle: '🧙 ORMs / Ferramentas de dados',
+      spellBadges: ['Prisma', 'Sequelize', 'SQLAlchemy', 'Entity Framework Core'],
       skills: [
         { name: 'SQL', level: 8, max: 10, tags: ['Queries', 'Relatórios', 'Performance'] },
+        { name: 'NoSQL', level: 8, max: 10, tags: ['Queries', 'Relatórios', 'Performance'] },
         { name: 'PostgreSQL', level: 8, max: 10, tags: ['Views', 'Indexes'] },
         { name: 'MongoDB', level: 6, max: 10, tags: ['Documents', 'Collections'] },
         { name: 'Redis', level: 7, max: 10, tags: ['Cache', 'Queues', 'Sessions'] },
@@ -96,10 +99,10 @@ export class Skills {
   passiveSkills = [
     'Clean Architecture',
     'SOLID',
+    'Clean code',
     'Performance & UX',
-    'Observability (logs/metrics)',
-    'Code Review & padrões',
     'Escalabilidade',
+    'Scrum/Kanban',
   ];
 
   // Helpers

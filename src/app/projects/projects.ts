@@ -111,7 +111,7 @@ export class Projects {
     },
     {
       id: 'quest-todo-list',
-      title: 'To-Do List Full Stack',
+      title: 'To-Do List',
       subtitle: 'Sistema de tarefas com autenticação, API própria e frontend separado',
       description:
         'Aplicação full stack de gerenciamento de tarefas com backend em Express e TypeScript, autenticação com JWT e frontend em React com Vite. O projeto mostra domínio de separação entre front e back, validação de dados e organização de fluxo de usuário.',
